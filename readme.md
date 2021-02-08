@@ -4,7 +4,7 @@ Java/Gradle/Spring Boot (version 2.2.2.RELEASE) application developed for test t
 
 About the Service
 ---
-This is simple RESTful project which imitate basic functions of web book library. It uses an in-memory database (H2) to store the data. Please, use port **8889** to call REST endpoints.
+This is simple RESTful project which imitates basic functions of web book library. It uses an in-memory database (H2) to store the data. Please, use port **8889** to call REST endpoints.
 
 You can access DB console on /h2-console endpoint. DB connection details can be found in src/main/resources/application.properties file. 
 
