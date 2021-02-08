@@ -21,28 +21,28 @@ public class UserController {
 
     @GetMapping("/api/users/{id}")
     public ResponseEntity<User> getUserById (@PathVariable long id) {
-        return new ResponseEntity<User>(userService.getUserById(id), new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>(userService.getUserById(id), new HttpHeaders(), HttpStatus.OK);
     }
 
     @PostMapping("/api/users")
     public ResponseEntity<User> createNewUser (@Valid @RequestBody User user) {
-        return new ResponseEntity<User>(userService.addNewUser(user), new HttpHeaders(), HttpStatus.CREATED);
+        return new ResponseEntity<>(userService.addNewUser(user), new HttpHeaders(), HttpStatus.CREATED);
     }
 
     @PutMapping("/api/users/{id}")
-    public ResponseEntity<User> editUserById (@PathVariable long id, @RequestBody User user) {
-        return new ResponseEntity<User>(userService.editUserById(id, user), new HttpHeaders(), HttpStatus.OK);
+    public ResponseEntity<User> editUserById (@PathVariable long id, @Valid @RequestBody User user) {
+        return new ResponseEntity<>(userService.editUserById(id, user), new HttpHeaders(), HttpStatus.OK);
     }
 
     @DeleteMapping("/api/users/{id}")
-    public ResponseEntity deleteUserById(@PathVariable long id) {
+    public ResponseEntity<?> deleteUserById(@PathVariable long id) {
         userService.deleteUserById(id);
-        return new ResponseEntity(new HttpHeaders(), HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(new HttpHeaders(), HttpStatus.NO_CONTENT);
     }
 
     @GetMapping("/api/users")
     public ResponseEntity<Page<User>> getAllUsers (@RequestParam(defaultValue = "0") int page) {
-        return new ResponseEntity<Page<User>>(userService.getAllUsers(page), new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>(userService.getAllUsers(page), new HttpHeaders(), HttpStatus.OK);
     }
 
 }

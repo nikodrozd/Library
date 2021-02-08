@@ -3,6 +3,7 @@ package com.library.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Book {
@@ -11,8 +12,10 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @NotBlank(message = "Name of book cannot be empty")
     private String name;
 
+    @NotBlank(message = "Author of book cannot be empty")
     private String author;
 
     @ManyToOne
